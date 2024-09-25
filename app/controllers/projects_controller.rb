@@ -1,5 +1,5 @@
 class ProjectsController < ApplicationController
-  before_action :set_project, only: %i[ show edit update destroy ]
+  before_action :set_project, only: %i[ show edit update destroy toggle_done]
 
   # GET /projects or /projects.json
   def index
@@ -8,6 +8,14 @@ class ProjectsController < ApplicationController
 
   # GET /projects/1 or /projects/1.json
   def show
+  end
+
+  def toggle_done
+    @project.update(done: !@project.done)
+    respond_to do |format|
+      format.turbo_stream
+      format.html { redirect_to @project }
+    end
   end
 
   # GET /projects/new

@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
   resources :projects do
-    resources :comments, only: [ :create ]
+    member do
+      patch :toggle_done
+    end
+
+    resources :comments, only: [ :create, :destroy ]
   end
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 

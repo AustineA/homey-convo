@@ -12,7 +12,13 @@
         <%= button_to "Destroy this project", @project, method: :delete, class: "mt-2 rounded-lg py-3 px-5 bg-red-300 font-medium" %>
       </div>
     </div>
-    <button class="ml-2 rounded-lg py-3 px-5 bg-black text-gray-100 inline-block font-medium">Mark As Done</button>
+
+      <%= button_to @project.done ? "Mark as Not Done" : "Mark As Done", toggle_done_project_path(@project),
+        method: :patch,
+        class: "ml-2 rounded-lg py-3 px-5 bg-black text-gray-100 inline-block font-medium", data: { turbo: true },
+        id: "done_button"
+      %>
+
   </div>
 
 

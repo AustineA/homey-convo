@@ -1,0 +1,8 @@
+
+<%= turbo_stream.replace "done_button" do %>
+  <%= button_to @project.done ? "Mark as Not Done" : "Mark As Done", toggle_done_project_path(@project),
+    method: :patch,
+    class: "ml-2 rounded-lg py-3 px-5 bg-black text-gray-100 inline-block font-medium", data: { turbo: true },
+    id: "done_button"
+  %>
+<%end%>

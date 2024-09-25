@@ -1,6 +1,7 @@
-<div class="mt-5 w-full border-b pb-3">
+<div class="mt-5 w-full border-b pb-3" id="<%= dom_id(comment) %>">
   <p class="mb-5 text-gray-500">
     <p><%= comment.content %></p>
   </p>
   <em>By</em> <strong><%= comment.author %></strong>
+  <%= button_to 'Delete', project_comment_path(comment.project, comment), method: :delete, data: { turbo_confirm: "Are you sure?" }, class: "text-red-500" %>
 </div>
