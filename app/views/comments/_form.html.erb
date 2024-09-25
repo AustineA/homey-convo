@@ -1,0 +1,9 @@
+<%= form_with(model: [@project, Comment.new], data: { turbo: true }, local: false, id: "new_comment_form") do |form| %>
+  <div class="mb-4">
+    <%= form.text_area :content, class: "w-full p-2 border border-gray-300 rounded-lg" %>
+  </div>
+  <div class="mb-4">
+    <%= form.text_field :author, class: "w-full p-2 border border-gray-300 rounded-lg", placeholder: "Author" %>
+  </div>
+  <%= form.submit "Add Comment", class: "bg-black text-white py-2 px-4 rounded-lg" %>
+<% end %>
