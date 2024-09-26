@@ -6,3 +6,8 @@
     id: "done_button"
   %>
 <%end%>
+
+
+<%= turbo_stream.replace "marked_done" do %>
+  <%= render 'comments/form' %>
+<%end%>
